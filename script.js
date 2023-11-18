@@ -15,7 +15,10 @@ async function checkWeather(city){
     }else{
         document.querySelector(".error").style.display="none";
     }
-
+    if(searchBox.value == ''){
+        document.querySelector(".error").style.display="block";
+        weather.classList.add("vreme");
+    }
     var data= await response.json();
 
     document.querySelector(".city").innerHTML = data.name;
